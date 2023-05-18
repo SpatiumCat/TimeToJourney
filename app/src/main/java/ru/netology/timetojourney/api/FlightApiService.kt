@@ -36,7 +36,7 @@ private val retrofit = Retrofit.Builder()
 
 interface FlightApiService {
 
-    @POST("GetCheap/")
+    @POST("GetCheap")
     @Headers("accept: application/json, text/plain", "content-type: application/json")
     fun getFlight(@Body postBody: PostBody): Call<List<Flight>>
 

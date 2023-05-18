@@ -36,10 +36,10 @@ class FlightViewHolder (
         ): RecyclerView.ViewHolder(binding.root) {
             fun bind(flight: Flight){
                 binding.apply {
-                    departureDate.text = flight.departureDate.toString()
-                    departureCity.text = flight.departureCity
-                    arrivalDate.text = flight.arrivalDate.toString()
-                    arrivalCity.text = flight.arrivalCity
+                    departureDate.text = flight.startDate.toString()
+                    departureCity.text = flight.startCity
+                    arrivalDate.text = flight.endDate.toString()
+                    arrivalCity.text = flight.endCity
                     price.text = flight.price.toString()
                     like.isChecked = flight.likedByMe
 

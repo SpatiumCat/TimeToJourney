@@ -10,15 +10,15 @@ import ru.netology.timetojourney.model.FeedModel
 import ru.netology.timetojourney.repository.FlightRepository
 import ru.netology.timetojourney.repository.FlightRepositoryImpl
 
-private val flights: List<Flight> = listOf(
-    Flight("Калининград", "Saint-Petersburg", 123512L, 495949L, 12500 ),
-    Flight("Moscow", "Ekaterinburg", 123115L, 345234L, 25450),
-    Flight("Smolensk", "Berlin", 3617582, 7878787, 40000)
-)
+//private val flights: List<Flight> = listOf(
+//    Flight("Калининград", "Saint-Petersburg", 123512L, 495949L, 12500 ),
+//    Flight("Moscow", "Ekaterinburg", 123115L, 345234L, 25450),
+//    Flight("Smolensk", "Berlin", 3617582, 7878787, 40000)
+//)
 
 class FlightViewModel(application: Application): AndroidViewModel(application) {
 
-    private val _data = MutableLiveData<FeedModel>(FeedModel(flights))
+    private val _data = MutableLiveData<FeedModel>()
     private val repository: FlightRepository = FlightRepositoryImpl()
 
     val data: LiveData<FeedModel>
@@ -37,12 +37,16 @@ class FlightViewModel(application: Application): AndroidViewModel(application) {
     fun loadFlight() {
         _data.value = FeedModel(loading = true)
 
-        _data.value =
-            try{
-                FeedModel( flights = repository.getFlights())
-            } catch (e: IOException) {
-                FeedModel(error = true)
+        repository.getFlights(object : FlightRepository.GetAllCallback<List<Flight>> {
+            override fun onSuccess(flights: List<Flight>) {
+                _data.value = FeedModel(flights = flights, empty = flights.isEmpty())
             }
+
+            override fun onError(e: Exception) {
+                _data.value = FeedModel(error = true)
+            }
+        })
+
     }
 
 }

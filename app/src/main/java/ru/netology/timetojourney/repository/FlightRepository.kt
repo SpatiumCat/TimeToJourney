@@ -4,5 +4,12 @@ import ru.netology.timetojourney.dto.Flight
 
 interface FlightRepository {
 
-    fun getFlights (): List<Flight>
+    fun getFlights(callback: GetAllCallback<List<Flight>>)
+
+    interface GetAllCallback<T> {
+        fun onSuccess(flights: T)
+        fun onError(e: Exception)
+    }
 }
+
+
