@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardFlight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/card_background"
+        android:elevation="8dp"
+        app:cardBackgroundColor="@color/card_background"
+        app:cardCornerRadius="16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/like"
+                style="@style/styleLikeTextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/price_layout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/price_layout" />
+
+
+            <FrameLayout
+                android:id="@+id/price_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/banner_background"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/departureCity">
+
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
+                    android:textColor="@color/primary_text"
+                    android:textSize="20sp"
+                    tools:text="TextView" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/arrivalCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/arrivalDate"
+                app:layout_constraintTop_toBottomOf="@+id/arrivalDate"
+                tools:text="TextView" />
+
+            <TextView
+                android:id="@+id/departureCity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:ellipsize="end"
+                android:lines="2"
+                android:textColor="@color/secondary_name"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/arrivalCity"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/departureDate"
+                tools:text="TextView" />
+
+            <TextView
+                android:id="@+id/arrivalDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/primary_text"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/betweenDate"
+                app:layout_constraintStart_toEndOf="@+id/betweenDate"
+                app:layout_constraintTop_toTopOf="@+id/betweenDate"
+                tools:layout_constraintTop_toBottomOf="@id/avatarBarrier"
+                tools:text="TextView" />
+
+            <ImageView
+                android:id="@+id/betweenDate"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/baseline_horizontal_rule_24"
+                app:layout_constraintBottom_toBottomOf="@+id/departureDate"
+                app:layout_constraintEnd_toStartOf="@id/arrivalDate"
+                app:layout_constraintStart_toEndOf="@+id/departureDate"
+                app:layout_constraintTop_toTopOf="@+id/departureDate" />
+
+            <TextView
+                android:id="@+id/departureDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="TextView"
+                android:textColor="@color/primary_text"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@id/betweenDate"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/avatarCompany" />
+
+            <ImageView
+                android:id="@+id/avatarCompany"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/baseline_flight_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/airCompany"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/air_company_name"
+                app:layout_constraintBottom_toBottomOf="@+id/avatarCompany"
+                app:layout_constraintStart_toEndOf="@+id/avatarCompany"
+                app:layout_constraintTop_toTopOf="@+id/avatarCompany" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>
+

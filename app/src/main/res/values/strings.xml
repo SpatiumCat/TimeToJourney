@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Time to Journey</string>
+    <string name="air_company_name">Infinity Sky Airlines</string>
+    <string name="empty_posts" translatable="false">There are no posts.\nIf you create a new post, it will appear here</string>
+    <string name="retry_loading" translatable="false">Retry</string>
+    <string name="error_loading" translatable="false">Something went wrong. Try again later</string>
+
+
+</resources>
