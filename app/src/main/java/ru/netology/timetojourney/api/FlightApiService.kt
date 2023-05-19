@@ -12,6 +12,7 @@ import retrofit2.http.POST
 import ru.netology.timetojourney.BuildConfig
 import ru.netology.timetojourney.PostBody
 import ru.netology.timetojourney.dto.Flight
+import ru.netology.timetojourney.dto.Flights
 import java.util.concurrent.TimeUnit
 
 
@@ -38,7 +39,7 @@ interface FlightApiService {
 
     @POST("GetCheap")
     @Headers("accept: application/json, text/plain", "content-type: application/json")
-    fun getFlight(@Body postBody: PostBody): Call<List<Flight>>
+    fun getFlight(@Body postBody: PostBody): Call<Flights>
 
 }
 

@@ -18,3 +18,7 @@ data class Seat(
     val passengerType: String,
     val count: Int
 )
+
+data class Flights(
+    val flights: List<Flight>
+)

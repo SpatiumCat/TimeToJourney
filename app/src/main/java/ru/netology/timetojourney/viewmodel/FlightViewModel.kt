@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import okio.IOException
 import ru.netology.timetojourney.dto.Flight
+import ru.netology.timetojourney.dto.Flights
 import ru.netology.timetojourney.model.FeedModel
 import ru.netology.timetojourney.repository.FlightRepository
 import ru.netology.timetojourney.repository.FlightRepositoryImpl
@@ -37,9 +38,9 @@ class FlightViewModel(application: Application): AndroidViewModel(application) {
     fun loadFlight() {
         _data.value = FeedModel(loading = true)
 
-        repository.getFlights(object : FlightRepository.GetAllCallback<List<Flight>> {
-            override fun onSuccess(flights: List<Flight>) {
-                _data.value = FeedModel(flights = flights, empty = flights.isEmpty())
+        repository.getFlights(object : FlightRepository.GetAllCallback<Flights> {
+            override fun onSuccess(flights: Flights) {
+                _data.value = FeedModel(flights = flights.flights, empty = flights.flights.isEmpty())
             }
 
             override fun onError(e: Exception) {

@@ -6,14 +6,15 @@ import retrofit2.Response
 import ru.netology.timetojourney.PostBody
 import ru.netology.timetojourney.api.FlightApi
 import ru.netology.timetojourney.dto.Flight
+import ru.netology.timetojourney.dto.Flights
 
 class FlightRepositoryImpl: FlightRepository {
-    override fun getFlights(callback: FlightRepository.GetAllCallback<List<Flight>>) {
+    override fun getFlights(callback: FlightRepository.GetAllCallback<Flights>) {
         FlightApi.retrofitService.getFlight(PostBody("LED"))
-            .enqueue(object : Callback<List<Flight>> {
+            .enqueue(object : Callback<Flights> {
                 override fun onResponse(
-                    call: Call<List<Flight>>,
-                    response: Response<List<Flight>>
+                    call: Call<Flights>,
+                    response: Response<Flights>
                 ) {
                     if (!response.isSuccessful) {
                         callback.onError(RuntimeException(response.message()))
@@ -22,7 +23,7 @@ class FlightRepositoryImpl: FlightRepository {
                     callback.onSuccess(response.body() ?: throw RuntimeException("body is null"))
                 }
 
-                override fun onFailure(call: Call<List<Flight>>, t: Throwable) {
+                override fun onFailure(call: Call<Flights>, t: Throwable) {
                     callback.onError(RuntimeException(t))
                 }
             }
