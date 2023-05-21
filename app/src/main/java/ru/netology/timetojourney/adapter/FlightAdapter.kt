@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.netology.timetojourney.databinding.CardFlightBinding
 import ru.netology.timetojourney.databinding.FragmentFeedFlightBinding
 import ru.netology.timetojourney.dto.Flight
+import java.text.SimpleDateFormat
 
 
 interface OnInteractionListener {
@@ -36,11 +37,12 @@ class FlightViewHolder (
         ): RecyclerView.ViewHolder(binding.root) {
             fun bind(flight: Flight){
                 binding.apply {
-                    departureDate.text = flight.startDate.toString()
+                    departureDate.text = flight.startDate.split(" ")[1]
                     departureCity.text = flight.startCity
-                    arrivalDate.text = flight.endDate.toString()
+                    arrivalDate.text = flight.endDate.split(" ")[1]
+                    println(arrivalDate.text)
                     arrivalCity.text = flight.endCity
-                    price.text = flight.price.toString()
+                    price.text = flight.price.toString().toRuble()
                     like.isChecked = flight.likedByMe
 
                     like.setOnClickListener {
@@ -51,6 +53,7 @@ class FlightViewHolder (
                     }
                 }
             }
+    private fun String.toRuble(): String = "$this р."
         }
 
 
