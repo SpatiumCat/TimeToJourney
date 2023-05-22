@@ -1,5 +1,7 @@
 package ru.netology.timetojourney.dto
 
+import java.io.Serializable
+
 data class Flight(
     val startCity: String,
     val endCity: String,

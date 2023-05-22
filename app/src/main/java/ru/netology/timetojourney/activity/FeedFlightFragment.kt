@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import ru.netology.timetojourney.R
 import ru.netology.timetojourney.adapter.FlightAdapter
 import ru.netology.timetojourney.adapter.OnInteractionListener
 import ru.netology.timetojourney.databinding.FragmentFeedFlightBinding
@@ -32,8 +34,12 @@ class FeedFlightFragment : Fragment() {
             }
 
             override fun onViewFlight(flight: Flight) {
-            }
-
+                findNavController().navigate(
+                    R.id.action_feedFlightFragment_to_flightFragment,
+                    Bundle().apply {
+                        putCharSequence("token", flight.searchToken)
+                    })
+                }
         })
 
         binding.listFlight.adapter = adapter
