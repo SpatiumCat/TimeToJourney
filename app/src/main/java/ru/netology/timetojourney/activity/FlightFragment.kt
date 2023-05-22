@@ -27,6 +27,7 @@ class FlightFragment : Fragment() {
         val viewModel: FlightViewModel by viewModels(::requireParentFragment)
         val viewHolder = FlightViewHolder(binding.flight, object : OnInteractionListener {
             override fun onLike(flight: Flight) {
+                viewModel.like(flight)
             }
 
             override fun onViewFlight(flight: Flight) {
