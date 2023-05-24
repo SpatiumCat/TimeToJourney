@@ -6,9 +6,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import ru.netology.timetojourney.databinding.CardFlightBinding
-import ru.netology.timetojourney.databinding.FragmentFeedFlightBinding
 import ru.netology.timetojourney.dto.Flight
 import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 
 interface OnInteractionListener {
@@ -37,10 +38,10 @@ class FlightViewHolder (
         ): RecyclerView.ViewHolder(binding.root) {
             fun bind(flight: Flight){
                 binding.apply {
-                    departureDate.text = flight.startDate.split(" ")[1]
+                    departureDate.text = parsingDate("HH:mm", flight.startDate)
                     departureCity.text = flight.startCity
-                    arrivalDate.text = flight.endDate.split(" ")[1]
-                    println(arrivalDate.text)
+                    arrivalDate.text = parsingDate("HH:mm", flight.endDate)
+                    println(parsingDate("yyyy-MM-dd HH:mm", flight.startDate))
                     arrivalCity.text = flight.endCity
                     price.text = flight.price.toString().toRuble()
                     like.isChecked = flight.likedByMe
@@ -54,6 +55,12 @@ class FlightViewHolder (
                 }
             }
     private fun String.toRuble(): String = "$this р."
+    private fun parsingDate(dateFormat: String, time: String): String {
+        val format = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US)
+        val splitTime = time.split(" ")
+        val date = format.parse("${splitTime[0]} ${splitTime[1]}")
+        return if(date != null) SimpleDateFormat(dateFormat, Locale.US).format(date) else ""
+    }
         }
 
 
