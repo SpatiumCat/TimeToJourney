@@ -12,10 +12,18 @@
         <action
             android:id="@+id/action_feedFlightFragment_to_flightFragment"
             app:destination="@id/flightFragment" />
+        <action
+            android:id="@+id/action_feedFlightFragment_to_flightDetailsFragment"
+            app:destination="@id/flightDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/flightFragment"
         android:name="ru.netology.timetojourney.activity.FlightFragment"
         android:label="FlightFragment"
         tools:layout="@layout/fragment_flight"/>
+    <fragment
+        android:id="@+id/flightDetailsFragment"
+        android:name="ru.netology.timetojourney.activity.FlightDetailsFragment"
+        android:label="FlightDetailsFragment"
+        tools:layout="@layout/fragment_flight_details"/>
 </navigation>

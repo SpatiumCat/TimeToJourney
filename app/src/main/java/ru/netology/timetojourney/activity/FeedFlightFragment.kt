@@ -35,7 +35,7 @@ class FeedFlightFragment : Fragment() {
 
             override fun onViewFlight(flight: Flight) {
                 findNavController().navigate(
-                    R.id.action_feedFlightFragment_to_flightFragment,
+                    R.id.action_feedFlightFragment_to_flightDetailsFragment,
                     Bundle().apply {
                         putCharSequence("token", flight.searchToken)
                     })

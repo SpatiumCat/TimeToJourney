@@ -41,7 +41,7 @@ class FlightViewHolder (
                     departureDate.text = parsingDate("HH:mm", flight.startDate)
                     departureCity.text = flight.startCity
                     arrivalDate.text = parsingDate("HH:mm", flight.endDate)
-                    println(parsingDate("yyyy-MM-dd HH:mm", flight.startDate))
+                   // println(parsingDate("yyyy-MM-dd HH:mm", flight.startDate))
                     arrivalCity.text = flight.endCity
                     price.text = flight.price.toString().toRuble()
                     like.isChecked = flight.likedByMe

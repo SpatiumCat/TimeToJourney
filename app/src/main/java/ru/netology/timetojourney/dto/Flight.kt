@@ -1,5 +1,7 @@
 package ru.netology.timetojourney.dto
 
+import ru.netology.timetojourney.enums.PassengerType
+import ru.netology.timetojourney.enums.ServiceClass
 import java.io.Serializable
 
 data class Flight(
@@ -9,7 +11,7 @@ data class Flight(
     val endDate: String,
     val startLocationCode: String,
     val endLocationCode: String,
-    val serviceClass: String,
+    val serviceClass: ServiceClass,
     val price: Int,
     val likedByMe: Boolean = false,
     val seats: List<Seat>,
@@ -17,7 +19,7 @@ data class Flight(
 )
 
 data class Seat(
-    val passengerType: String,
+    val passengerType: PassengerType,
     val count: Int
 )
 

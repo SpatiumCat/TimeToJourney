@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/background"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardFlightDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="8dp"
+        app:cardBackgroundColor="@color/card_background"
+        app:cardCornerRadius="16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/avatarCompanyDetails"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/baseline_flight_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/airCompanyDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/air_company_name"
+                app:layout_constraintBottom_toBottomOf="@+id/avatarCompanyDetails"
+                app:layout_constraintStart_toEndOf="@+id/avatarCompanyDetails"
+                app:layout_constraintTop_toTopOf="@+id/avatarCompanyDetails" />
+
+            <ImageView
+                android:id="@+id/imageStartFlight"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="24dp"
+                android:src="@drawable/flight_takeoff_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/avatarCompanyDetails" />
+
+            <LinearLayout
+                android:id="@+id/startFlightDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="@id/imageStartFlight"
+                app:layout_constraintStart_toEndOf="@id/imageStartFlight"
+                app:layout_constraintTop_toTopOf="@id/imageStartFlight"
+                app:layout_constraintVertical_bias="0.0">
+
+                <TextView
+                    android:id="@+id/startDateDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="19:15 01 июнь, вт" />
+
+                <TextView
+                    android:id="@+id/startCityDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/start_city"
+                    tools:text="Москва (DME)" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageEndFlight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:src="@drawable/flight_land_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageStartFlight" />
+
+            <LinearLayout
+                android:id="@+id/endFlightDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="@id/imageEndFlight"
+                app:layout_constraintStart_toEndOf="@id/imageEndFlight"
+                app:layout_constraintTop_toTopOf="@id/imageEndFlight"
+                app:layout_constraintVertical_bias="1">
+
+                <TextView
+                    android:id="@+id/endDateDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="23:00 01 июнь, чт" />
+
+                <TextView
+                    android:id="@+id/endCityDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Калининград (KGD)" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/serviceClassDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageEndFlight"
+                android:text="@string/service_class"
+                tools:text="Тариф: Эконом" />
+
+
+            <TextView
+                android:id="@+id/seatsType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/seats_type"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/serviceClassDetail" />
+
+            <LinearLayout
+                android:id="@+id/seatsTypeDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/seatsType"
+                android:layout_marginTop="8dp">
+                <TextView
+                    android:id="@+id/adultSeat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/adult"
+                    tools:visibility="visible"
+                    android:visibility="gone"/>
+                <TextView
+                    android:id="@+id/childSeat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/child"
+                    tools:visibility="visible"
+                    android:visibility="gone"/>
+                <TextView
+                    android:id="@+id/infantSeat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/infant"
+                    tools:visibility="visible"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/seatsTypeCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="@id/seatsTypeDetails"
+                app:layout_constraintStart_toEndOf="@id/seatsTypeDetails"
+                app:layout_constraintBottom_toBottomOf="@id/seatsTypeDetails"
+                android:layout_marginStart="8dp">
+                <TextView
+                    android:id="@+id/adultCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text = "3"
+                    tools:visibility="visible"
+                    android:visibility="gone"/>
+                <TextView
+                    android:id="@+id/childCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text = "2"
+                    tools:visibility="visible"
+                    android:visibility="gone"/>
+                <TextView
+                    android:id="@+id/infantCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text = "5"
+                    tools:visibility="visible"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/likeDetail"
+                style="@style/styleLikeTextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                 />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/orderButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/button"
+        app:cornerRadius="12dp"
+        tools:text = "Take 5000 p."
+        android:textAllCaps="false"
+        />
+
+
+</LinearLayout>

@@ -14,5 +14,6 @@
     <color name="primary_text">#565B65</color>
     <color name="secondary_name">#9B9A9D</color>
     <color name="color_liked">#FFFF0000</color>
+    <color name="button">#F48FB1</color>
 
 </resources>
