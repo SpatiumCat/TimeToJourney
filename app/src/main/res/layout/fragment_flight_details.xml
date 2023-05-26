@@ -214,6 +214,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
+
     </ScrollView>
 
     <com.google.android.material.button.MaterialButton
@@ -221,6 +222,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/button"
+        android:textColor="@color/primary_text"
         app:cornerRadius="12dp"
         tools:text = "Take 5000 p."
         android:textAllCaps="false"

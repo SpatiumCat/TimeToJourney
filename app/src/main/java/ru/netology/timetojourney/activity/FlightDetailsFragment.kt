@@ -63,6 +63,7 @@ class FlightDetailsFragment: Fragment() {
                 .format(resources.getString(R.string.end_city), flight.endCity, flight.endLocationCode)
             serviceClassDetail.text= String
                 .format(resources.getString(R.string.service_class), resources.getString(flight.serviceClass.type))
+            likeDetail.isChecked = flight.likedByMe
 
             for(seat in flight.seats) {
                 when(seat.passengerType){
