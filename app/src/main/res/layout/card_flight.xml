@@ -44,7 +44,7 @@
                 android:background="@drawable/banner_background"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/departureCity">
+                app:layout_constraintTop_toBottomOf="@id/startBlock">
 
                 <TextView
                     android:id="@+id/price"
@@ -57,67 +57,6 @@
                     tools:text="TextView" />
             </FrameLayout>
 
-            <TextView
-                android:id="@+id/arrivalCity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/arrivalDate"
-                app:layout_constraintTop_toBottomOf="@+id/arrivalDate"
-                tools:text="TextView" />
-
-            <TextView
-                android:id="@+id/departureCity"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:ellipsize="end"
-                android:lines="2"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toStartOf="@+id/arrivalCity"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/departureDate"
-                tools:text="TextView" />
-
-            <TextView
-                android:id="@+id/arrivalDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:textColor="@color/primary_text"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@+id/betweenDate"
-                app:layout_constraintStart_toEndOf="@+id/betweenDate"
-                app:layout_constraintTop_toTopOf="@+id/betweenDate"
-                tools:layout_constraintTop_toBottomOf="@id/avatarBarrier"
-                tools:text="TextView" />
-
-            <ImageView
-                android:id="@+id/betweenDate"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginStart="8dp"
-                android:src="@drawable/baseline_horizontal_rule_24"
-                app:layout_constraintBottom_toBottomOf="@+id/departureDate"
-                app:layout_constraintEnd_toStartOf="@id/arrivalDate"
-                app:layout_constraintStart_toEndOf="@+id/departureDate"
-                app:layout_constraintTop_toTopOf="@+id/departureDate" />
-
-            <TextView
-                android:id="@+id/departureDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="TextView"
-                android:textColor="@color/primary_text"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toStartOf="@id/betweenDate"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/avatarCompany" />
 
             <ImageView
                 android:id="@+id/avatarCompany"
@@ -136,6 +75,79 @@
                 app:layout_constraintBottom_toBottomOf="@+id/avatarCompany"
                 app:layout_constraintStart_toEndOf="@+id/avatarCompany"
                 app:layout_constraintTop_toTopOf="@+id/avatarCompany" />
+
+            <LinearLayout
+                android:id="@+id/startBlock"
+                android:layout_width="128dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/avatarCompany"
+                android:layout_marginTop="8dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+                        android:id="@+id/departureDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="00:05"
+                        android:textColor="@color/primary_text"
+                        android:textSize="20sp"/>
+
+                    <ImageView
+                        android:id="@+id/betweenDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:src="@drawable/baseline_horizontal_rule_24"
+                        android:layout_gravity="center"/>
+
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/departureCity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:lines="2"
+                    android:textSize="14sp"
+                    tools:text = "Санкт-Петербург" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/endBlock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="@id/startBlock"
+                app:layout_constraintStart_toEndOf="@id/startBlock"
+                app:layout_constraintTop_toTopOf="@id/startBlock"
+                app:layout_constraintVertical_bias="1.0">
+
+                <TextView
+                    android:id="@+id/arrivalDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/primary_text"
+                    android:textSize="20sp"
+                    tools:text="02:05" />
+
+                <TextView
+                    android:id="@+id/arrivalCity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:lines="2"
+                    android:textSize="14sp"
+                    tools:text="Санкт-Петербург" />
+
+            </LinearLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
