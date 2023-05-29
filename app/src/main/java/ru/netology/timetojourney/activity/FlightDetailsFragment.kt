@@ -43,11 +43,11 @@ class FlightDetailsFragment : Fragment() {
         }
 
         binding.likeDetail.setOnClickListener {
-            currentFlight?.let {
-                viewModel.like(it)
-            }
-        }
+           viewModel.data.value?.flights?.find { currentFlight?.searchToken == it.searchToken }?.let {
+               viewModel.like(it)
+           }
 
+            }
 
         return binding.root
 
